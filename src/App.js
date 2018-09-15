@@ -5,6 +5,7 @@ const App = () => {
     return (
       <div className="App">
           <input type='button' value='Upload'/>
+          <ChartContainer />
       </div>
     );
   }

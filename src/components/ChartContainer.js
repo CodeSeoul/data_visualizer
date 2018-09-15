@@ -1,7 +1,15 @@
 import React from 'react';
 
-const ChartContainer = () =>{
-    <div> Chart Container </div>
+const chartContainerStyle = {
+    textAlign:'center',
+    border: '1px solid black',
+    padding: 50
 }
 
-export {ChartContainer};
+const ChartContainer = () =>{
+    return  (
+        <div style={chartContainerStyle}> Chart Container </div>
+    )
+}
+
+export default ChartContainer;
