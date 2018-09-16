@@ -1,13 +1,13 @@
 import React from 'react'
 
-const TabMenu = (toggleChartHandler) =>{
+const TabMenu = ({handler}) =>{
     return (
         <div>
-            <input onClick={toggleChartHandler} value='Table' type='button'/>
-            <input value='Bar' type='button'/>
-            <input value='Line' type='button'/>
-            <input value='Pie' type='button'/>
-            <input value='Scatter' type='button'/>
+            <input onClick={e=>handler(e)} id='table' value='Table' type='button'/>
+            <input onClick={e=>handler(e)} id='bar' value='Bar' type='button'/>
+            <input onClick={e=>handler(e)} id='line' value='Line' type='button'/>
+            <input onClick={e=>handler(e)} id='pie' value='Pie' type='button'/>
+            <input onClick={e=>handler(e)} id='scatter' value='Scatter' type='button'/>
         </div>
     );
 };
