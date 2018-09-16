@@ -1,14 +1,24 @@
 import React from 'react';
 import ChartContainer from './components/ChartContainer';
-import UploadButton from './components/UploadButton';
+import UploadComponent from './components/UploadComponent';
+class App extends React.Component {
+  
+  state = {
+    data:[]
+  };
+  
+  updateData = newData => {
+    this.setState({data: newData});
+  };
 
-const App = () => {
+  render(){
     return (
-      <div className="App">
-          <UploadButton />
-          <ChartContainer />
-      </div>
+        <div className="App">
+            <UploadComponent updateData={this.updateData}/>
+            <ChartContainer data={this.state.data}/>
+        </div>
     );
   };
+};
 
 export default App;
