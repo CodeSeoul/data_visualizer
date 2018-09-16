@@ -4,6 +4,7 @@ import BarChart from '../components/charts/BarChartComponent';
 import LineChart from '../components/charts/LineChartComponent';
 import PieChart from '../components/charts/PieChartComponent';
 import ScatterPlot from '../components/charts/ScatterPlotComponent';
+import Table from '../components/charts/TableComponent'
 
 const chartContainerStyle = {
     textAlign:'center',
@@ -15,17 +16,22 @@ class ChartContainer extends React.Component{
         selectedChart : 'table'
     }
 
-    toggleChartHandler = chartType => {
+    toggleChart = e => {
         this.setState({
-            selectedTab: chartType
+            selectedChart: e.target.id
         });
     };
+
     render(){
         return  (
             <div>
-                <TabMenu selectedChart={this.state.selectedChart}/>
+                <TabMenu handler={this.toggleChart}/>
                 <div style={chartContainerStyle}> 
-                    Chart Container
+                    {this.state.selectedChart==='table' && <Table />}
+                    {this.state.selectedChart==='bar' && <BarChart />}
+                    {this.state.selectedChart==='line' && <LineChart />}
+                    {this.state.selectedChart==='pie' && <PieChart />}
+                    {this.state.selectedChart==='scatter' && <ScatterPlot />}    
                 </div>
             </div>
         )
