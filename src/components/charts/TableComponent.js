@@ -2,18 +2,22 @@
 import React from 'react'
 
 const Table = data => {
-    const rows = data.data.map((row, index) =>
-        <li key={index}>
-            {row}
-        </li>
+    const rows = data.data.map((row, rowI) =>
+        <tr key={rowI}>
+            {row.map((col,colI)=>
+                <td key={rowI+'-'+colI}>{col}</td>
+            )}
+        </tr>
     );
 
     return (
         <div>
         <div>Table</div>
-        <ul>
-            {rows}
-        </ul>
+        <table>
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
         </div>
     );
 };
