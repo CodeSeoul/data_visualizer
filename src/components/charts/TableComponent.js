@@ -12,7 +12,7 @@ const Table = data => {
 
     return (
         <div>
-        <div>Table</div>
+        {data.data.length === 0 && <div>Table</div>}
         <table>
             <tbody>
                 {rows}
