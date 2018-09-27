@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Column from './helper/ColumnList';
 
 const ScatterPlot = () => {
     return (
-        <div>ScatterPlot</div>
+        <div>ScatterPlot
+            <Column />
+        </div>
     );
 };
 
