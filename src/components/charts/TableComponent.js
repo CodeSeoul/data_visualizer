@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React from 'react';
 
 const Table = data => {
     const rows = data.data.map((row, rowI) =>
