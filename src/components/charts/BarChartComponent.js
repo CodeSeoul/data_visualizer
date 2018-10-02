@@ -1,6 +1,7 @@
 import React from 'react';
 import Column from './helper/ColumnList';
-
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const BarChart = () => {
     return (
@@ -10,4 +11,4 @@ const BarChart = () => {
     );
 };
 
-export default BarChart;
+export default DragDropContext(HTML5Backend)(BarChart);
