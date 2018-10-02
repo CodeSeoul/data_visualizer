@@ -1,9 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ItemTypes } from './Constants';
+import { DragSource } from 'react-dnd';
 
-const Column = () => {
-    return (
-        <div>columns</div>
-    );
+const columnSource = {
+    beginDrag(props){
+        return {};
+    }
 };
 
-export default Column;
+const collect = (connect, monitor) => {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging:monitor.isDragging()
+    }
+}
+
+class Column extends React.Component {
+    render(){
+        const {connectDragSource, isDragging} = this.props;
+        return connectDragSource(
+            <div style={{
+                opacity: isDragging ? 0.5 : 1,
+                fontSize: 25,
+                fontWeight: 'bold',
+                cursor: 'move'
+              }}>
+              columns
+            </div>
+        );
+    };
+}
+
+Column.propTypes={
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging : PropTypes.bool.isRequired
+}
+
+
+export default DragSource(ItemTypes.COLUMN, columnSource, collect)(Column);
