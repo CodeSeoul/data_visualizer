@@ -1,5 +1,5 @@
 import React from 'react';
-import Column from './helper/ColumnList';
+import Column from './helper/Column';
 
 const ScatterPlot = () => {
     return (
