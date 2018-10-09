@@ -9,18 +9,20 @@ class ColumnsContainer extends React.Component{
     render(){
         const columns = column => {
             return(
-                <Column>
-                    {column.data[0]}
-                </Column>
+                <Column name={column.data[0]} />
             )
         };
         
 
         return(
             <DragDropContextProvider backend={HTML5Backend}>
-                <ul>
-                    {columns}
-                </ul>
+
+                <Axis />
+                <div>
+                {columns}
+                </div>
+                
+            
             </DragDropContextProvider>
         );
     }
