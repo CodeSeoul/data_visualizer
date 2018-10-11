@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = data => {
+const Table = data => { 
     const rows = data.data.map((row, rowI) =>
         <tr key={rowI}>
             {row.map((col,colI)=>
