@@ -7,22 +7,27 @@ import Column from './Column';
 
 class ColumnsContainer extends React.Component{
     render(){
-        const columns = column => {
-            return(
-                <Column name={column.data[0]} />
-            )
-        };
+
+        const { columns } = this.props;
+        console.log(columns);
         
+        if(columns.data.length!==0){
+            var columnsMap = columns.data[0].map((column,index) => {
+                return(
+                    <Column name={column} key={index} />
+                )
+            });
+        }else{
+            var columnsMap = "";
+        }
+
 
         return(
             <DragDropContextProvider backend={HTML5Backend}>
-
                 <Axis />
                 <div>
-                {columns}
+                {columnsMap}
                 </div>
-                
-            
             </DragDropContextProvider>
         );
     }
