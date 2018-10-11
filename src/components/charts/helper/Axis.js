@@ -10,12 +10,18 @@ const collect = (connect, monitor) => {
     };
 };
 
+const axisTarget = {
+    drop(){
+        return {name : 'Axis'}
+    },
+}
+
 
 class Axis extends React.Component {
     render(){
         const { connectDropTarget, isOver } = this.props;
         return connectDropTarget(
-            <div>Drop Target
+            <div>Drop Column Here
             {isOver &&
                 <div style={{
                   position: 'absolute',
@@ -35,4 +41,8 @@ class Axis extends React.Component {
     }     
 }
 
-export default DropTarget(ItemTypes.COLUMN, {} , collect)(Axis);
+Axis.propTypes ={
+    connectDropTarget: PropTypes.func.isRequired
+}
+
+export default DropTarget(ItemTypes.COLUMN, axisTarget, collect)(Axis);
