@@ -5,8 +5,9 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 const BarChart = data => {
     return (
-        <div>Bar Chart
-            <ColumnsContainer columns={data.data[0]} />
+        <div>
+            {data.data.length === 0 && <div>BarChart</div>}
+            <ColumnsContainer columns={data} />
         </div>
     );
 };
