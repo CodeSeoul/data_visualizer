@@ -9,25 +9,25 @@ class ColumnsContainer extends React.Component{
     render(){
 
         const { columns } = this.props;
+        let columnsMap = "";
         console.log(columns);
         
         if(columns.data.length!==0){
-            var columnsMap = columns.data[0].map((column,index) => {
+            columnsMap = columns.data[0].map((column,index) => {
                 return(
                     <Column name={column} key={index} />
                 )
             });
-        }else{
-            var columnsMap = "";
-        }
+        };
 
 
         return(
             <DragDropContextProvider backend={HTML5Backend}>
-                <Axis />
+                <Axis type='X-axis'/>
                 <div>
-                {columnsMap}
+                    {columnsMap}
                 </div>
+                <Axis type='Y-axis'/> 
             </DragDropContextProvider>
         );
     }
