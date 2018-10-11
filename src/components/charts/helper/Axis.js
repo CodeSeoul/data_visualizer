@@ -11,17 +11,16 @@ const collect = (connect, monitor) => {
 };
 
 const axisTarget = {
-    drop(){
-        return {name : 'Axis'}
+    drop(props,monitor,component){
+        return {name : props.type}
     },
 }
-
 
 class Axis extends React.Component {
     render(){
         const { connectDropTarget, isOver } = this.props;
         return connectDropTarget(
-            <div>Drop Column Here
+            <div>{this.props.type}
             {isOver &&
                 <div style={{
                   position: 'absolute',
