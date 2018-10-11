@@ -1,15 +1,13 @@
 import React from 'react';
-import Column from './helper/Column';
-import Axis from './helper/Axis';
+import ColumnsContainer from './helper/ColumnsContainer';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
-const BarChart = () => {
+const BarChart = data => {
     return (
-        <div>Bar Chart
-            <Column />
-
-            <Axis />
+        <div>
+            {data.data.length === 0 && <div>BarChart</div>}
+            <ColumnsContainer columns={data} />
         </div>
     );
 };

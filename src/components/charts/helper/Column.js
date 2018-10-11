@@ -4,8 +4,22 @@ import { ItemTypes } from './Constants';
 import { DragSource } from 'react-dnd';
 
 const columnSource = {
-    beginDrag(props){
-        return {};
+    beginDrag(props,monitor,component){
+        return {
+            name: props.name
+        };
+    },
+    endDrag(props,monitor,component){
+        if (!monitor.didDrop()) {
+            return;
+          }
+
+        const item = monitor.getItem();
+        const dropResult = monitor.getDropResult();
+        
+        if(dropResult){
+            console.log(`You dropped ${item.name} into ${dropResult.name}!`);
+        }
     }
 };
 
@@ -26,7 +40,7 @@ class Column extends React.Component {
                 fontWeight: 'bold',
                 cursor: 'move'
               }}>
-              columns
+            {this.props.name}  
             </div>
         );
     };

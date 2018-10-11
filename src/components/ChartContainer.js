@@ -28,7 +28,7 @@ class ChartContainer extends React.Component{
                 <TabMenu handler={this.toggleChart}/>
                 <div style={chartContainerStyle}> 
                     {this.state.selectedChart==='table' && <Table data={this.props.data}/>}
-                    {this.state.selectedChart==='bar' && <BarChart />}
+                    {this.state.selectedChart==='bar' && <BarChart data={this.props.data}/>}
                     {this.state.selectedChart==='line' && <LineChart />}
                     {this.state.selectedChart==='pie' && <PieChart />}
                     {this.state.selectedChart==='scatter' && <ScatterPlot />}    
